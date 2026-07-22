@@ -31,7 +31,7 @@ header,
 .btn-menu-certificacoes {
   position: fixed;
   top: 25px;
-  right: 40px;
+  right: max(40px, calc((100vw - 1200px) / 2 + 40px));
   z-index: 999;
 
   background-color: #2e1065;
@@ -284,11 +284,17 @@ h2 {
    'position: sticky' faz ela acompanhar a rolagem sem sair do lugar
    dela na página, em vez de ficar fixa presa ao canto da tela. */
 .competencias-direita {
-  width: 260px;
+  width: 280px;
   flex-shrink: 0;
   position: sticky;
   top: 90px;
   align-self: flex-start;
+  
+  /* Adições estilísticas: */
+  background-color: #16161a;
+  border: 1px solid #3b0764;
+  border-radius: 12px;
+  padding: 20px;
 }
 
 .competencias-direita h3 {
@@ -336,4 +342,10 @@ h2 {
   body {
     padding: 90px 20px 60px 20px;
   }
+
+  
+}
+
+#certificacoes {
+  scroll-margin-top: 90px;
 }
