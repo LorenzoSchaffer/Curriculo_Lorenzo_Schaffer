@@ -7,25 +7,30 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Faz a página rolar suavemente ao clicar no botão */
+  scroll-behavior: smooth; 
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #0f0f12;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 50% 0%, #1e0f37 0%, #08050e 50%, #000000 100%);
+  background-attachment: fixed;
   color: #f1f1f5;
   line-height: 1.6;
   max-width: 1050px;
+  min-height: 100vh;
   padding: 90px 20px 60px 80px;
-  margin: 0;
+  
+  /* Remove a centralização e encosta todo o conteúdo principal à esquerda */
+  margin: 0; 
+  position: relative;
 }
 
-/* Botão Fixo no Canto Esquerdo da Tela */
+
 .btn-menu-certificacoes {
   position: fixed;
-  top: 25px; /* Distância do topo */
-  right: 600px; /* Puxa para o lado DIREITO */
-  left: auto; /* Desativa o alinhamento à esquerda */
+  top: 25px; 
+  right: 600px; 
+  left: auto; 
   z-index: 999;
 
   background-color: #2e1065;
@@ -48,7 +53,7 @@ body {
 .btn-menu-certificacoes:hover {
   background-color: #9333ea;
   color: #ffffff;
-  transform: translateY(-2px); /* Efeito suave de subida ao passar o mouse */
+  transform: translateY(-2px); 
 }
 
 header {
@@ -148,6 +153,7 @@ section {
   font-size: 1.15rem;
   line-height: 1.8;
   color: #d4d4d8;
+  margin-bottom: 70px;
 }
 
 .skills-list {
@@ -195,14 +201,13 @@ h2 {
 }
 
 .bau-header::-webkit-details-marker {
-  display: none; /* Esconde a seta padrão do navegador */
+  display: none; 
 }
 
 .bau-header:hover {
   background-color: #2e1065;
 }
 
-/* Girar a setinha quando o baú for aberto */
 .bau-container[open] .setinha {
   transform: rotate(180deg);
 }
@@ -218,7 +223,7 @@ h2 {
   background-color: #111015;
 }
 
-/* Estilo da lista de Projetos dentro do Baú */
+
 .projetos-lista {
   display: flex;
   flex-direction: column;
@@ -261,4 +266,45 @@ h2 {
 .certificados-lista li i {
   color: #a855f7;
   font-size: 1.2rem;
+}
+
+.competencias-direita {
+  position: fixed;
+  top: 85px;   /* Fica logo abaixo do botão de certificações (que está em top: 25px) */
+  right: 60px; /* Mesma distância da direita para ficarem perfeitamente alinhados */
+  z-index: 10;
+  width: 260px;
+}
+
+/* Título */
+.competencias-direita h3 {
+  color: #c084fc;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Lista sem marcadores e sem caixas */
+.lista-competencias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-competencias li {
+  color: #d4d4d8;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lista-competencias li i {
+  color: #a855f7;
+  font-size: 0.85rem;
 }
