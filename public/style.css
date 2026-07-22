@@ -7,7 +7,7 @@
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,21 +16,22 @@ body {
   background-attachment: fixed;
   color: #f1f1f5;
   line-height: 1.6;
-  max-width: 1050px;
   min-height: 100vh;
-  padding: 90px 20px 60px 80px;
-  
-  /* Remove a centralização e encosta todo o conteúdo principal à esquerda */
-  margin: 0; 
-  position: relative;
+  padding: 90px 40px 60px 40px;
 }
 
+/* Container central: limita a largura e centraliza tudo na página,
+   já que agora a aside faz parte do fluxo (não é mais 'position: fixed') */
+header,
+.conteudo-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .btn-menu-certificacoes {
   position: fixed;
-  top: 25px; 
-  right: 600px; 
-  left: auto; 
+  top: 25px;
+  right: 40px;
   z-index: 999;
 
   background-color: #2e1065;
@@ -53,7 +54,7 @@ body {
 .btn-menu-certificacoes:hover {
   background-color: #9333ea;
   color: #ffffff;
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 header {
@@ -145,6 +146,18 @@ header {
   transform: translateY(-2px);
 }
 
+/* ====== NOVO: wrapper que coloca main + aside lado a lado ====== */
+.conteudo-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+main {
+  flex: 1;
+  min-width: 0; /* evita que o texto empurre o layout */
+}
+
 section {
   margin-bottom: 45px;
 }
@@ -153,7 +166,7 @@ section {
   font-size: 1.15rem;
   line-height: 1.8;
   color: #d4d4d8;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 .skills-list {
@@ -201,7 +214,7 @@ h2 {
 }
 
 .bau-header::-webkit-details-marker {
-  display: none; 
+  display: none;
 }
 
 .bau-header:hover {
@@ -222,7 +235,6 @@ h2 {
   border-top: 1px solid #2e1065;
   background-color: #111015;
 }
-
 
 .projetos-lista {
   display: flex;
@@ -268,15 +280,17 @@ h2 {
   font-size: 1.2rem;
 }
 
+/* ====== Competências: agora faz parte do fluxo, ao lado do main ======
+   'position: sticky' faz ela acompanhar a rolagem sem sair do lugar
+   dela na página, em vez de ficar fixa presa ao canto da tela. */
 .competencias-direita {
-  position: fixed;
-  top: 85px;   /* Fica logo abaixo do botão de certificações (que está em top: 25px) */
-  right: 60px; /* Mesma distância da direita para ficarem perfeitamente alinhados */
-  z-index: 10;
   width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px;
+  align-self: flex-start;
 }
 
-/* Título */
 .competencias-direita h3 {
   color: #c084fc;
   font-size: 1.1rem;
@@ -286,7 +300,6 @@ h2 {
   gap: 8px;
 }
 
-/* Lista sem marcadores e sem caixas */
 .lista-competencias {
   list-style: none;
   padding: 0;
@@ -307,4 +320,20 @@ h2 {
 .lista-competencias li i {
   color: #a855f7;
   font-size: 0.85rem;
+}
+
+/* ====== Responsivo: empilha a aside abaixo do conteúdo em telas menores ====== */
+@media (max-width: 900px) {
+  .conteudo-wrapper {
+    flex-direction: column;
+  }
+
+  .competencias-direita {
+    position: static;
+    width: 100%;
+  }
+
+  body {
+    padding: 90px 20px 60px 20px;
+  }
 }
