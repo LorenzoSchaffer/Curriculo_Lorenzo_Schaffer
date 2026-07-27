@@ -20,8 +20,6 @@ body {
   padding: 90px 40px 60px 40px;
 }
 
-/* Container central: limita a largura e centraliza tudo na página,
-   já que agora a aside faz parte do fluxo (não é mais 'position: fixed') */
 header,
 .conteudo-wrapper {
   max-width: 1200px;
@@ -146,7 +144,6 @@ header {
   transform: translateY(-2px);
 }
 
-/* ====== NOVO: wrapper que coloca main + aside lado a lado ====== */
 .conteudo-wrapper {
   display: flex;
   align-items: flex-start;
@@ -155,7 +152,7 @@ header {
 
 main {
   flex: 1;
-  min-width: 0; /* evita que o texto empurre o layout */
+  min-width: 0; 
 }
 
 section {
@@ -280,9 +277,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* ====== Competências: agora faz parte do fluxo, ao lado do main ======
-   'position: sticky' faz ela acompanhar a rolagem sem sair do lugar
-   dela na página, em vez de ficar fixa presa ao canto da tela. */
 .competencias-direita {
   width: 280px;
   flex-shrink: 0;
@@ -328,7 +322,6 @@ h2 {
   font-size: 0.85rem;
 }
 
-/* ====== Responsivo: empilha a aside abaixo do conteúdo em telas menores ====== */
 @media (max-width: 900px) {
   .conteudo-wrapper {
     flex-direction: column;
